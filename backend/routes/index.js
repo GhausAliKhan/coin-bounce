@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const authController = require("../controller/authController");
 const blogController = require("../controller/blogController");
+const commentController = require("../controller/commentController");
 
 const auth = require("../middleware/auth");
 
@@ -41,10 +42,10 @@ router.delete("/blog/:id", auth, blogController.delete);
 
 //For Comment
 // 1 - Create
-
+router.post("/comment", auth, commentController.create);
 
 // 2 - Read
 // 2.1 - Read Comment by Blog Id
-
+router.get("/comment/:id", auth, commentController.getById);
 
 module.exports = router;
