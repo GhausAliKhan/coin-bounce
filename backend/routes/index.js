@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authController = require("../controller/authController");
+const auth = require("../middleware/auth");
 
 //Testing
 //router.get("/test", (req, res) => res.json({ msg: "Working!" }));
@@ -14,7 +15,10 @@ router.post("/register", authController.register);
 router.post("/login", authController.login);
 
 // 3 - Logout
+router.post("/logout", auth, authController.logout);
+
 // 4 - Refresh
+router.get("/refresh", auth, authController.refresh);
 
 //For Blog
 // 1 - Create
