@@ -94,7 +94,7 @@ const blogController = {
     }
     // 2 - Send Response
     const blogDto = new BlogByIdDTO(blog);
-    return res.status(201).json({ blog: blogDto });
+    return res.status(200).json({ blog: blogDto });
   },
 
   // 3 - Update
